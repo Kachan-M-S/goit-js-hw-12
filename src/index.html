@@ -2,22 +2,81 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>Image search</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
-  <body>
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
 
+  <body>
+    <header>
+      <button class="theme-toggle" aria-label="Toggle dark mode" type="button">
+        <!-- Сонце -->
+        <svg
+          class="sun"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+
+        <!-- Місяць -->
+        <svg
+          class="moon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+        </svg>
+      </button>
+    </header>
     <main>
-      <!-- Loads the specified .html file -->
-      <load src="./partials/vite-promo.html" />
-      <load src="./partials/badges.html" />
+      <form class="form">
+        <label class="label-pix">
+          <input
+            id="typewriter"
+            name="search-text"
+            class="pix-input"
+            type="text"
+            placeholder=""
+            autocomplete="on"
+            required
+          />
+        </label>
+        <button class="btn-pix" type="submit">Search</button>
+      </form>
+
+      <span class="loader"></span>
+
+      <ul class="gallery"></ul>
+
+      <button class="load-more">Load more</button>
     </main>
 
-    <load src="./partials/footer.html" />
-
     <script type="module" src="./main.js"></script>
+    <script type="module">
+      const btn = document.querySelector('.theme-toggle');
+      btn.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+      });
+    </script>
   </body>
 </html>
